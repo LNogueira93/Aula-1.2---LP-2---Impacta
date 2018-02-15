@@ -28,28 +28,36 @@ Total...............960.0
 # 1800182 - Jady Pelisari Redini
 # 1800180 - Lucas Moises Nogueira
 
-dias = int(input("Quantos dias foram gastos? "))
-quarto = input("Qual tipo de quarto usado? (P,S,C) ")
-telefone = input("Usou o telefone? (S/N) ")
-tv = input("Usou a TV? (S/N) ")
+tipo = input('Tipo do quarto: ')
+dias = int(input('Quantidade de diárias: '))
+fone = input('Usou Telefone: ')
+tv = input('Usou TV: ')
 
-P = int(160)
-S = int(110)
-C = int(85)
-#telefone = input("S,N")
-#tv = input("S,N")
+valor_total = 0
+if tipo == 'P':
+    valor_total = dias * 160
+elif tipo == 'S':
+    vlor_total = dias * 110
+elif tipo == 'C':
+    valor_total = dias * 85
+else:
+    print('Tipo inválido')
+    exit()
 
-if (dias > 0):
-  calc1 = int(dias * P)
-  print("Hospital Comunitário")
-  print("Número de dias no hospital: ",dias)
-  print("Diárias...........",calc1)
+uso_fone = 0
+if fone == 'S':
+    uso_fone = 3
 
-#if (telefone == "S"):
-#  calc2 = 3
-#elif (telefone == "N"):
-#  calc2 = 0
-  print("Telefone...........",0)
-  print("Televisão...........",0)
-#total = calc1 + calc2
-  print("Total...........",calc1)
+uso_tv = 0
+if tv == 'S':
+    uso_tv = 4
+
+total = valor_total + uso_fone + uso_tv
+
+print('Hospital Comunitátio')
+print('Número de dias no Hospital: {}'.format(dias))
+print('Tipo de quarto: {}'.format(tipo))
+print('Diárias {}{}'.format("." * 13, valor_total))
+print('Telefone {}{}'.format("." * 12, uso_fone))
+print('Televisão {}{}'.format("." * 11, uso_tv))
+print('Total {}{}'.format("." * 15, total))
